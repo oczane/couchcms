@@ -1,0 +1,44 @@
+<div class="form-group">
+        <label for="firstname"><button type="button" class="btn btn-danger" ng-click="Logout()">Logout</button>&nbsp;&nbsp;<a href="#" ng-click="ShowtoEdit()"><u>Edit content</u></a></label>
+</div>
+
+<div class="form-group" ng-show="clicked == 1">
+        <select ng-model="culture" class="form-control" id="culture">
+            <option value="en-in">English</option>
+            <option value="ar-bh">Bahrain - Arabic</option>
+            <option value="nl-be">Belgium - Dutch</option>
+            <option value="fr-fr">France - French</option>
+        </select><br />
+        <button type="button" class="btn btn-danger" ng-click="RedirectToEdit(culture)">Edit</button>
+        <hr />
+</div>
+
+<h4>Create content</h4>
+<div ng-show="saved==false">
+<form>
+    <div class="form-group">
+        <label for="firstname">Culture</label>
+        <input type="text" class="form-control" id="firstname" placeholder="Culture (e.g. en-in, fr-fr)" ng-model="inputForm.value.culture">
+    </div>
+    <div class="form-group">
+        <label for="lastname">Page Name</label>
+        <input type="text" class="form-control" id="lastname" placeholder="Page Name (e.g. home)" ng-model="inputForm.value.pagename">
+    </div>
+    <div class="form-group">
+        <label for="email">Content</label>
+        <textarea class="form-control" ui-tinymce id="tinymce1" placeholder="Content" ng-model="inputForm.value.maincontent" rows="6"></textarea>
+    </div>
+
+    <button type="button" class="btn btn-danger" ui-sref="create">Cancel</button>
+    <button type="button" class="btn btn-success" ng-click="save(inputForm.value.culture, inputForm.value.pagename, inputForm.value.maincontent)">Save</button>
+
+    <hr />
+    <label for="preview">Preview</label>
+    <div ng-bind-html="inputForm.value.maincontent"></div>
+
+</form>
+</div>
+
+<div class="form-group" ng-show="saved==true">
+        <label for="firstname" style="color:green;">Content saved successfully...</label>
+</div>
