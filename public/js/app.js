@@ -1,3 +1,4 @@
+var apiURL = 'http://localhost:8000';
 
 var app = angular.module("couchcmsapp", ["ui.router", "ngSanitize", "ui.tinymce", "ngCookies"]);
 
@@ -52,7 +53,7 @@ app.controller("MainController", function($scope, $location, $http, $state, $sta
         $http(
             {
                 method: "GET",
-                url: "/api/get",
+                url: apiURL + "/api/get",
                 params: {
                     culture: $stateParams.culture,
                     page_name: 'home'
@@ -117,7 +118,7 @@ app.controller("LoginController", function($scope, $location, $http, $state, $st
         $http(
             {
                 method: "GET",
-                url: "/api/get"
+                url: apiURL + "/api/get"
             }
         )
         .success(function(result) {
@@ -136,7 +137,7 @@ app.controller("LoginController", function($scope, $location, $http, $state, $st
         $http(
             {
                 method: "GET",
-                url: "/api/get",
+                url: apiURL + "/api/get",
                 params: {
                     document_id: $stateParams.documentId
                 }
@@ -154,7 +155,7 @@ app.controller("LoginController", function($scope, $location, $http, $state, $st
         $http(
             {
                 method: "POST",
-                url: "/api/delete",
+                url: apiURL + "/api/delete",
                 data: {
                     document_id: documentId
                 }
@@ -172,7 +173,7 @@ app.controller("LoginController", function($scope, $location, $http, $state, $st
         $http(
             {
                 method: "POST",
-                url: "/api/save",
+                url: apiURL + "/api/save",
                 data: {
                     maincontent: content,
                     author: "Rakesh Gupta",
