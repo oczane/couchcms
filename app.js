@@ -21,9 +21,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-// All endpoints to be used in this application
-//var routes = require("./routes/routes.js")(app);
-
 app.use('/api', routes);
 app.use('/cms', cmsroutes);
 
