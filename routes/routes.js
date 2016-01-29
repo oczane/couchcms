@@ -1,10 +1,11 @@
+var express          = require('express');
+var app              = express.Router();
 var contentModel     = require("../models/ContentModel");
 var logger           = require("../logconfig");
 
-var appRouter = function(app) {
-
-	app.get("/api/get", function(req, res) {
+app.get("/get", function(req, res) {
         logger.info("Inside /api/get");
+      
         var document_id = '';
 
         if (req.query.document_id)
@@ -26,11 +27,13 @@ var appRouter = function(app) {
             }
             res.send(result);
         });
+
+    
         
     });
 
 	
-    app.post("/api/delete", function(req, res) {
+app.post("/delete", function(req, res) {
         if(!req.body.document_id) {
             return res.status(400).send({"status": "error", "message": "A document id is required"});
         }
@@ -43,7 +46,7 @@ var appRouter = function(app) {
     });
 
 
-    app.post("/api/save", function(req, res) {
+app.post("/save", function(req, res) {
 
         if(!req.body.maincontent) {
             return res.status(400).send({"status": "error", "message": "maincontent is required"});
@@ -63,6 +66,5 @@ var appRouter = function(app) {
         });
         
     });
-};
 
-module.exports = appRouter;
+module.exports = app;

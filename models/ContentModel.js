@@ -1,6 +1,7 @@
 var uuid        = require("uuid");
-var db          = require("../app").bucket;
+var couchbase   = require("couchbase");
 var config      = require("../config");
+var db          = (new couchbase.Cluster(config.couchbase.server)).openBucket(config.couchbase.bucket);
 var N1qlQuery   = require('couchbase').N1qlQuery;
 
 function ContentModel() { };
