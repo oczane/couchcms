@@ -3,13 +3,14 @@ var express          = require('express');
 var session          = require('express-session');
 var app              = express.Router();
 var contentModel     = require("../models/ContentModel");
+var csrfProtection   = require("../csurf").csrfProtection();
 
-app.get('/edit', function(req, res, next) {
-    res.render('index', { title: 'Express'});
+app.get('/edit', csrfProtection, function(req, res, next) {
+    res.render('index', { title: 'Express', csrfToken: req.csrfToken()});
 });
 
-app.get('/edit/:culture/:page', function(req, res, next) {
-    res.render('edit', { title: 'Express'});
+app.get('/edit/:culture/:page', csrfProtection, function(req, res, next) {
+    res.render('edit', { title: 'Express', csrfToken: req.csrfToken()});
 });
 
 app.get('/list', function(req, res, next) {
@@ -21,7 +22,7 @@ app.get('/list', function(req, res, next) {
     });
 });
 
-app.post("/save", function(req, res) {
+app.post("/save", csrfProtection, function(req, res) {
     var author = "Rakesh Gupta";
     if(!req.body.maincontent) {
         return res.status(400).send({"status": "error", "message": "maincontent is required"});

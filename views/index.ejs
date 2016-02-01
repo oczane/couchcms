@@ -15,6 +15,7 @@
             <h4>Create content <a href="/user/logout"><u><b>[Logout]</b></u></a></h4>
 <div>
 <form action="/cms/save" method="post">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
     <div class="form-group">
         <label for="firstname">Culture</label>
         <input type="text" class="form-control" name="culture" placeholder="Culture (e.g. en-in, fr-fr)" ng-model="inputForm.value.culture">

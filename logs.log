@@ -790,3 +790,6 @@
 {"level":"info","message":"app is live. start hitting the api.","timestamp":"2016-02-01T12:17:58.167Z"}
 {"level":"info","message":"app is live. start hitting the api.","timestamp":"2016-02-01T12:20:17.644Z"}
 {"level":"info","message":"app is live. start hitting the api.","timestamp":"2016-02-01T12:22:11.679Z"}
+{"level":"info","message":"app is live. start hitting the api.","timestamp":"2016-02-01T12:30:59.054Z"}
+{"level":"info","message":"Inside /api/get","timestamp":"2016-02-01T12:31:57.301Z"}
+{"level":"info","message":"Inside /api/get","timestamp":"2016-02-01T12:32:29.827Z"}
