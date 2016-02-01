@@ -20,10 +20,8 @@ Start node server by node app.js
 
 Some reference URLs (local)
 http://localhost:8000/#/  - Default site page
-http://localhost:8000/#/login - Login (use test@test.com/test credentials. This is hard code as of now)
-http://localhost:8000/#/create - to create content
-
-http://localhost:8000/#/en-in/home - Language specific url to go to home page
+http://localhost:8000/user/login - Login (use test@test.com/test credentials. This is hard code as of now)
+http://localhost:8000/cms/edit/en-in/home - Language specific url to edit
 
 In case of any queries, please send me emails to grakesh18@gmail.com 
 
