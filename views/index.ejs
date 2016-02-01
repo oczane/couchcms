@@ -1,1 +1,44 @@
-<%= title %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <script src="../js/angular.min.js"></script>
+        <script src="../js/angular-ui-router.min.js"></script>
+        <script src="../js/angular-sanitize.min.js"></script>
+        <script src="../js/angular-cookies.min.js"></script>
+        <script src="../lib/tinymce/tinymce.min.js"></script>
+        <script src="../js/tinymce-config.js"></script>
+        <script src="../js/ejsconfig.js"></script>
+    </head>
+    <body ng-app="ejsapp">
+        <div style="padding: 20px">
+            <h4>Create content <a href="/user/logout"><u><b>[Logout]</b></u></a></h4>
+<div>
+<form action="/cms/save" method="post">
+    <div class="form-group">
+        <label for="firstname">Culture</label>
+        <input type="text" class="form-control" name="culture" placeholder="Culture (e.g. en-in, fr-fr)" ng-model="inputForm.value.culture">
+    </div>
+
+    <div class="form-group">
+        <label for="lastname">Page Name</label>
+        <input type="text" class="form-control" name="page_name" placeholder="Page Name (e.g. home)" ng-model="inputForm.value.pagename">
+    </div>
+
+    <div class="form-group">
+        <label for="email">Content</label>
+        <textarea class="form-control" ui-tinymce name="maincontent" placeholder="Content" ng-model="inputForm.value.maincontent" rows="6"></textarea>
+    </div>
+
+    <button type="button" class="btn btn-danger" ui-sref="create">Cancel</button>
+    <button type="submit" class="btn btn-success">Save</button>
+
+    <hr />
+    <label for="preview">Preview</label>
+    <div ng-bind-html="inputForm.value.maincontent"></div>
+
+</form>
+</div>
+      	</div>
+    </body>
+</html>

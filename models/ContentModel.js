@@ -15,12 +15,12 @@ ContentModel.delete = function(documentId, callback) {
     });
 };
 
-ContentModel.save = function(data, callback) {
+ContentModel.save = function(data, author, callback) {
     var jsonObject = {
         type: 'cms',
         id: uuid.v4(),
         maincontent: data.maincontent,
-        author: data.author,
+        author: author,
         createdate: new Date(),
         culture: data.culture,
         pagename: data.page_name,
@@ -46,6 +46,17 @@ ContentModel.getByDocumentId = function(documentId, callback) {
         else{
             callback(null, result);   
         }
+    });
+};
+
+ContentModel.getAllPages = function(callback) {
+    var query = N1qlQuery.fromString("SELECT * FROM couchcms WHERE type='cms';");
+    db.query(query,function(err,result){
+        if (err){
+            logger.info(err);
+            callback('{error: true, errormsg: ' + err + ', result:[]}', null);
+        }
+        callback(null,result);
     });
 };
 

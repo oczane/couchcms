@@ -1,0 +1,24 @@
+  <a href="/user/logout"><u><b>[Logout]</b></u></a>
+<h2><%= title %></h2>
+<hr />
+
+<table>
+<% for(var i=0; i < contectList.length; i++) { %>
+   <tr>
+     <td><h4>Author:</h4> <%= contectList[i].couchcms.author %></td>
+   </tr>
+   <tr>
+     <td><h4>Culture:</h4><%= contectList[i].couchcms.culture %></td>
+   </tr>
+   <tr>
+     <td style="background-color:orange"><h4>Content:</h4><%- contectList[i].couchcms.maincontent %></td>
+   </tr>
+   <tr>
+     <td><h4>Page Name:</h4><%= contectList[i].couchcms.pagename %></td>
+   </tr>
+   <tr>
+     <td><hr /></td>
+   </tr>
+<% } %>
+</table>
+
