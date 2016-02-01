@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(session({
     secret: '###COUCH-CMS###',
     name: 'session',
-    //store: sessionStore, // connect-mongo session store
+    //store: sessionStore, // TO-DO - connect to redis store to maintain state
     proxy: true,
     resave: true,
     saveUninitialized: true,
