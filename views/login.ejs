@@ -13,6 +13,7 @@
      <% } %>
 </span>
 <form action="/user/login" method="post">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 <div class="form-group">
         <label for="firstname">Email</label>
         <input type="text" class="form-control" name="email" ng-model="email">

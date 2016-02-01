@@ -1,12 +1,13 @@
 var express         = require('express');
 var app             = express.Router();
 var userModel       = require("../models/UserModel");
+var csrfProtection  = require("../csurf").csrfProtection();
 
-app.get('/login', function(req, res, next) {
-	res.render('login', { title: 'Express', msg: null});
+app.get('/login', csrfProtection, function(req, res, next) {
+	res.render('login', { title: 'Express', msg: null, csrfToken: req.csrfToken()});
 });
 
-app.post('/login', function(req, res, next) { 
+app.post('/login', csrfProtection, function(req, res, next) { 
     userModel.Login(req.body.email, req.body.pwd, function(err, result){
         if (err == null) {
             req.session.email=req.body.email;
@@ -14,7 +15,7 @@ app.post('/login', function(req, res, next) {
             res.redirect('/cms/edit');
         }
         else {
-            res.render('login', { title: 'Express', msg: err});
+            res.render('login', { title: 'Express', msg: err, csrfToken: req.csrfToken()});
         }
     });
 });
