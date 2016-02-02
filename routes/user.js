@@ -1,5 +1,6 @@
 var express         = require('express');
 var app             = express.Router();
+
 var userModel       = require("../models/UserModel");
 var csrfProtection  = require("../csurf").csrfProtection();
 

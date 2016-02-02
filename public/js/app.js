@@ -10,28 +10,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
             "controller": "MainController",
             "cache": false
         })
-        .state("create", {
-            "url": "/create",
-            "templateUrl": "templates/item.html",
-            "controller": "LoginController",
-            "cache": false
-        })
-        .state("item", {
-            "url": "/item/:documentId",
-            "templateUrl": "templates/item.html",
-            "controller": "LoginController",
-            "cache": false
-        })
         .state("/", {
             "url": "/",
             "templateUrl": "templates/default.html",
             "controller": "MainController",
-            "cache": false
-        })
-        .state("/login", {
-            "url": "/login",
-            "templateUrl": "templates/login.html",
-            "controller": "LoginController",
             "cache": false
         });
     $urlRouterProvider.otherwise("/");
@@ -71,6 +53,7 @@ app.controller("MainController", function($scope, $location, $http, $state, $sta
 });
 
 //============================================================================================================================================
+/*
 app.controller("LoginController", function($scope, $location, $http, $state, $stateParams, $cookieStore) {
     if ($cookieStore.get('IsLoggedIn') == null){
         $location.path('/login');
@@ -192,3 +175,4 @@ app.controller("LoginController", function($scope, $location, $http, $state, $st
     }
 
 });
+*/

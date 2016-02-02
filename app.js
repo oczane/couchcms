@@ -2,14 +2,17 @@ var express     	= require("express");
 var bodyParser  	= require("body-parser");
 var path        	= require("path");
 var cookieParser 	= require('cookie-parser');
-var favicon 		= require('serve-favicon');
-var session         = require('express-session');
+var favicon 		  = require('serve-favicon');
+var session       = require('express-session');
+
 var config      	= require("./config");
 var logger      	= require("./logconfig");
-var app         	= express();
-var routes 			= require('./routes/routes'); 	//api route
-var user	 		= require('./routes/user'); 	//user route
+
+var routes 			  = require('./routes/routes'); 	//api route
+var user	 		    = require('./routes/user'); 	//user route
 var cmsroutes 		= require('./routes/cms'); 		//cms route
+
+var app           = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
